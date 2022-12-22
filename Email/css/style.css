@@ -48,10 +48,6 @@ button {
     cursor: pointer;
 }
 
-.jello {
-    animation: jello-vertical 0.9s both;
-}
-
 .t_und {
     text-decoration: underline;
     font-weight: bold;
