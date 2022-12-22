@@ -3,11 +3,10 @@ const btn = document.getElementById('submit');
 
 btn.addEventListener('click',
     function() {
-        let value_l = parseInt(mail_auth.length);
+        let value_l = mail_auth.length;
 
         for(let i = 0; i < value_l; i++) {
-            console.log('Le mail autorizzate sono le seguenti:');
-            console.log(mail_auth[i]);
+            console.log('Le mail autorizzata:' + mail_auth[i]);
         }
 
         let us_in = document.getElementById('user_input');
@@ -16,14 +15,50 @@ btn.addEventListener('click',
         if(!isNaN(user_input)) {
             alert('Inserisci correttamente la mail');
             location.reload();
-        }
-
-        console.log('La mail inserita è:' + ' ' + user_input);
-
-        if((user_input == mail_auth[0]) || (user_input == mail_auth[1]) || (user_input == mail_auth[2])) {
-            alert('La tua mail è autorizzata');
         } else {
-            
+            console.log('La mail inserita è:' + ' ' + user_input);
+            let message = document.querySelector('header h1');
+            let messagecont = document.querySelector('header');
+            let label = document.querySelector('label');
+
+            if(mail_auth.indexOf(user_input) >= 0) {
+                console.log('Mail autorizzata.');
+                message.innerHTML = 'Mail autorizzata. Benvenuto';
+                message.style.color = 'Green';
+                message.style.padding = ' 50px 0';
+            } else {
+                message.innerHTML = 'Nessun Riscontro! <br> <p>Reinserisci la tua mail e clicca sul bottone per registrarti.</p>';
+                messagecont.innerHTML = 
+                `
+                <h1>Nessun Riscontro!</h1> <br> 
+                <p>Clicca sul bottone per registrarti.</p>
+                <button id="register">Registrati</button>
+                `;
+                message.style.color = 'red';
+
+                let register = document.getElementById('register');
+                register.addEventListener('click',
+                    function() {
+                        messagecont.innerHTML =
+                        `
+                            <h1 style="color:red" >Registrati</h1> 
+                            <label for="usr_re">Inserisci la tua mail e clicca invia.</label>
+                            <input type="text" id="usr_re">
+                            <button id="send">Invia</button>
+                        `;
+                        let sendt = document.getElementById('send');
+                        sendt.addEventListener('click',
+                            function() {
+                                messagecont.innerHTML =
+                                `
+                                    <h1>Mail autorizzata. Benvenuto</h1>
+                                `;
+                            }
+                        );
+                    }
+                );
+                label.innerHTML = "";
+            }
         }
     }
 );
