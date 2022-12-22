@@ -7,15 +7,38 @@
 body {
     background-color: lightsalmon;
     font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
+}
+
+.pad-y {
+    padding: 20px 0;
+}
+
+.bdr {
+    border-radius: 25px;
+}
+
+header {
+    text-align: center;
+    margin: 50px 0;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button, h1 {
+    margin: 30px 0;
+}
+
+h1, p {
+    color: white;
 }
 
 .container {
-    margin-top: 700px;
     width: 700px;
     height: 400px;
     margin: auto;
-    border-radius: 25px;
     background-color: gray;
     display: flex;
     flex-direction: column;
@@ -31,25 +54,7 @@ body {
     vertical-align: center;
     text-align: center;
     line-height: 120px;
-}
-
-header {
-    text-align: center;
-    margin: 50px 0;
-}
-
-button {
-    padding: 5px 10px;
-    margin: 30px 0;
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-h1 {
-    margin: 30px 0;
-    color: white;
-}
-
-p {
-    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    display: none;
 }
